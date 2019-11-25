@@ -1,5 +1,5 @@
 const create = (user) => {
-    return fetch('localhost:3000/api/users', {
+    return fetch('http://localhost:9779/api/users', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -13,8 +13,21 @@ const create = (user) => {
     .catch((err) => console.log(err))
 }
 
+const read = (params, credentials) => {
+    return fetch('http://localhost:9779/api/users/' + params.userId, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + credentials.t
+      }
+    }).then((response) => {
+      return response.json()
+    }).catch((err) => console.log(err))
+  }
+
 const list = () => {
-    return fetch('localhost:3000/api/users/', {
+    return fetch('http://localhost:9779/api/users/', {
         method: 'GET',
     }).then(response => {
         return response.json()
@@ -22,7 +35,7 @@ const list = () => {
 }
 
 const update = (params, credentials, user) => {
-    return fetch('localhost:3000/api/users' + params.userId, {
+    return fetch('http://localhost:9779/api/users' + params.userId, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -38,7 +51,7 @@ const update = (params, credentials, user) => {
 }
 
 const remove = (params, credentials) => {
-    return fetch('localhost:3000/api/users' + params.userId, {
+    return fetch('http://localhost:9779/api/users' + params.userId, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',

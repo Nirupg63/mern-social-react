@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import seashellImg from './../assets/images/seashell.jpg'
+import {Link} from 'react-router-dom'
 
 const styles = theme => ({
     card: {
@@ -29,6 +30,7 @@ class Home extends Component {
           <Typography type="headline" component="h2" className={classes.title}>
             Home Page
           </Typography>
+          <Link to="/users">Users</Link>
           <CardMedia className={classes.media} image={seashellImg} title="Unicorn Shells"/>
           <CardContent>
             <Typography type="body1" component="p">
