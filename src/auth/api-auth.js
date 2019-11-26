@@ -1,5 +1,5 @@
 const signin = (user) => {
-    return fetch('localhost:3000/api/signin', {
+    return fetch('http://localhost:9779/auth/signin', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -15,7 +15,7 @@ const signin = (user) => {
 }
 
 const signout = () => {
-    return fetch('localhost:3000/api/signout/', {
+    return fetch('http://localhost:9779/auth/signout/', {
         method: 'GET',
     }).then(response => {
         return response.json()

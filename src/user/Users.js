@@ -48,7 +48,7 @@ class Users extends Component {
                                         <Person/>
                                     </Avatar>
                                 </ListItemAvatar>
-                                <ListItemText primary={item.name}/>
+                                <ListItemText primary={item.name} secondary={item.email}/>
                                 <ListItemSecondaryAction>
                                     <IconButton>
                                         <ArrowForward/>

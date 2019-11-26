@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import Person from '@material-ui/icons/Person'
 import { withStyles } from "@material-ui/styles"
 import { Redirect, Link } from 'react-router-dom'
-import {List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper} from '@material-ui/core'
+import { List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Edit from '@material-ui/icons/Edit'
@@ -82,6 +82,9 @@ class Profile extends Component {
                     <ListItem>
                         <ListItemText primary={"Joined: " + (
                             new Date(this.state.user.created)).toDateString()} />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText primary={this.state.user.about} />
                     </ListItem>
                 </List>
             </Paper>
