@@ -1,4 +1,4 @@
-import React,{ Component } from "react"
+import React, { Component } from "react"
 import PropTypes from 'prop-types'
 import Person from '@material-ui/icons/Person'
 import Avatar from '@material-ui/core/Avatar'
@@ -7,51 +7,51 @@ import IconButton from '@material-ui/core/IconButton'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import { withStyles } from '@material-ui/core/styles'
 import { list } from "./api-user"
-import {Link} from 'react-router-dom'
-import {List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper} from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import { List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper } from '@material-ui/core'
 
 const styles = theme => ({
     root: theme.mixins.gutters({
-      padding: theme.spacing,
-      margin: theme.spacing(5)
+        padding: theme.spacing,
+        margin: theme.spacing(5)
     }),
     title: {
-      margin: `${theme.spacing(4)}px 0 ${theme.spacing(2)}px`,
-      color: theme.palette.openTitle
+        margin: `${theme.spacing(4)}px 0 ${theme.spacing(2)}px`,
+        color: theme.palette.openTitle
     }
-  })
+})
 class Users extends Component {
     state = { users: [] }
 
     componentDidMount = () => {
         list().then((data) => {
-            if(data.error)
+            if (data.error)
                 console.log(data.error)
             else
-                this.setState({users: data})
+                this.setState({ users: data })
         })
     }
 
     render() {
-        const {classes} = this.props
+        const { classes } = this.props
         return (
             <Paper className={classes.root} elevation={4}>
                 <Typography type="title" className={classes.title}>
                     All Users
                 </Typography>
                 <List dense>
-                    {this.state.users.map(function(item, i) {
+                    {this.state.users.map(function (item, i) {
                         return <Link to={"/user/" + item._id} key={i}>
                             <ListItem button>
                                 <ListItemAvatar>
                                     <Avatar>
-                                        <Person/>
+                                        <Person />
                                     </Avatar>
                                 </ListItemAvatar>
-                                <ListItemText primary={item.name} secondary={item.email}/>
+                                <ListItemText primary={item.name} secondary={item.email} />
                                 <ListItemSecondaryAction>
                                     <IconButton>
-                                        <ArrowForward/>
+                                        <ArrowForward />
                                     </IconButton>
                                 </ListItemSecondaryAction>
                             </ListItem>
@@ -65,7 +65,7 @@ class Users extends Component {
 
 Users.propTypes = {
     classes: PropTypes.object.isRequired
-  }
-  
+}
+
 
 export default withStyles(styles)(Users)
