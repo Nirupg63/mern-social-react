@@ -64,4 +64,36 @@ const remove = (params, credentials) => {
     })
 }
 
-export { create, list, read, update, remove }
+const follow = (params, credentials, followId) => {
+    return fetch('http://localhost:9779/api/users/follow', {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + credentials.t
+        },
+        body: JSON.stringify({userId: params.userId, followId: followId})
+    }).then((response) => {
+        return response.json()
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+const unfollow = (params, credentials, unfollowId) => {
+    return fetch('http://localhost:9779/api/users/unfollow', {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + credentials.t
+        },
+        body: JSON.stringify({userId: params.userId, unfollowId: unfollowId})
+    }).then((response) => {
+        return response.json()
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+export { create, list, read, update, remove, follow, unfollow }
