@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types'
 import { read } from './api-user'
 import auth from '../auth/auth-helper'
 import Typography from '@material-ui/core/Typography'
-import Person from '@material-ui/icons/Person'
 import { withStyles } from "@material-ui/styles"
 import { Redirect, Link } from 'react-router-dom'
 import { List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Paper } from '@material-ui/core'
@@ -62,7 +62,7 @@ class Profile extends Component {
     checkFollow = (user) => {
         const jwt = auth.isAuthenticated()
         const match = user.followers.find((follower) => {
-            return follower._id == jwt.user._id
+            return follower._id === jwt.user._id
         })
         return match
     }
@@ -119,7 +119,7 @@ class Profile extends Component {
                             <Avatar src={photoUrl} className={classes.bigAvatar} />
                         </ListItemAvatar>
                         <ListItemText primary={this.state.user.name} secondary={this.state.user.email} /> {
-                            auth.isAuthenticated().user && auth.isAuthenticated().user._id == this.state.user._id
+                            auth.isAuthenticated().user && auth.isAuthenticated().user._id === this.state.user._id
                                 ? (<ListItemSecondaryAction>
                                     <Link to={"/user/edit/" + this.state.user._id}>
                                         <IconButton aria-label="Edit" color="primary">

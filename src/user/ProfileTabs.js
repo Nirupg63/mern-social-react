@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import AppBar from 'material-ui/AppBar'
-import Typography from 'material-ui/Typography'
-import Tabs, { Tab } from 'material-ui/Tabs'
+import AppBar from '@material-ui/core/AppBar'
+import Typography from '@material-ui/core/Typography'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
 import FollowGrid from './../user/FollowGrid'
 import PostList from './../post/PostList'
 

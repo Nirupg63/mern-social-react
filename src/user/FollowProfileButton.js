@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
+import { follow, unfollow}  from './api-user'
 
 
 class FollowProfileButton extends Component {

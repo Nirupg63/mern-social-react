@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import auth from './../auth/auth-helper'
-import { CardHeader } from 'material-ui/Card'
-import TextField from 'material-ui/TextField'
-import Avatar from 'material-ui/Avatar'
-import Icon from 'material-ui/Icon'
+import CardHeader from '@material-ui/core/CardHeader'
+import TextField from '@material-ui/core/TextField'
+import Avatar from '@material-ui/core/Avatar'
+import Icon from '@material-ui/core/Icon'
 import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
+import {withStyles} from '@material-ui/styles'
 import {comment, uncomment} from './api-post.js'
 import {Link} from 'react-router-dom'
 
@@ -44,7 +44,7 @@ class Comments extends Component {
     this.setState({[name]: event.target.value})
   }
   addComment = (event) => {
-    if(event.keyCode == 13 && event.target.value){
+    if(event.keyCode === 13 && event.target.value){
       event.preventDefault()
       const jwt = auth.isAuthenticated()
       comment({
